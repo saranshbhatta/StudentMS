@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* color: white; */
+    
+  }
+  body{
+    background-color: rgb(76, 76, 209);
+  }
+  
+  
+  .navbar {
+    display: flex;
+    width: 100vw;
+    height: 50px;
+    background-color: rgb(79, 79, 255);
+    align-items: center;
+    gap: 50px;
+    padding: 10px;
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+  }
+
+
+  /* .table{
+    position: absolute;
+    top: 30%;
+    left:30%;
+    display: flex;
+    flex-direction: column;
+  }
+  input{
+    font-size: 2rem;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+  }
+  label{
+    font-size: 2rem;
+    color: white;
+    margin: 5px;
+    padding: 5px;
+    }
+
+  form{
+    display: flex;
+    flex-direction: column;
+  }
+
+  table, th, td {
+    border: 1px solid rgb(255, 255, 255);
+    border-collapse: collapse;
+    font-size: 40px;
+  }
+
+
+  .btn{
+    display: flex;
+    right: 50%;
+    bottom: 50%;
+    height: 80px;
+    width: 200px;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(47, 47, 224);
+    font-size: 1.5rem;
+    transition: all 0.5s;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
+
+
+  .btn:hover{
+    color: white;
+    background-color: rgb(25, 25, 155);
+  }
+
+  .add_btn_container{
+    position: absolute;
+    display:flex;
+    flex-direction: row;
+    top: 65%;
+    left: 30%;
+  }
+
+  .toggle_class{
+    visibility: hidden;
+  }
+  a{
+    text-decoration: none;
+    color: black;
+  } */
+
+
+  /* .allTable{
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    height: 100vh;
+    width: 100vw;
+
+  } */
+
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    /* border: 1px solid rgb(255, 255, 255); */
+  }
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #000000;
+    color: white;
+  }
+  form {
+    margin:30px 10px;
+    padding: 15px;
+    /* color: black; */
+  }
+
+label{
+  color: white;
+}
+
+.toggle{
+  display: none;
+}
