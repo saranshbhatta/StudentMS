@@ -1,7 +1,8 @@
 const formEl = document.getElementById("studentForm");
 const searchEl = document.getElementById("search");
-const dataTable = document.getElementById('studentTable')
-const searchTable = document.getElementById('searchTable')
+const dataTable = document.getElementById("studentTable");
+const searchTable = document.getElementById("searchTable");
+const delBtnEl = document.getElementsByClassName("del_btn");
 
 if (localStorage.getItem("data") != null) {
   displayStudentDetails();
@@ -28,50 +29,46 @@ function addStudentDetails() {
 }
 
 function displayStudentDetails() {
-    dataTable.classList.remove('toggle')
-    searchTable.classList.add('toggle')
+  dataTable.classList.remove("toggle");
+  searchTable.classList.add("toggle");
   const studentData = JSON.parse(localStorage.getItem("data"));
   //   console.log(studentData);
   const tableEl = document.getElementById("studentTable");
   tableEl.innerHTML = "<tr><th>Name</th><th>Age</th><th>Grade</th></tr>";
 
   studentData.forEach((student) => {
-    // console.log(student);
-    // Create a new row
     const row = document.createElement("tr");
 
-    // Create cells for student data
     const nameCell = document.createElement("td");
     const ageCell = document.createElement("td");
     const gradeCell = document.createElement("td");
+    const delBtn = document.createElement("button");
+    delBtn.className = "del_btn";
 
     nameCell.textContent = student.name;
     ageCell.textContent = student.age;
     gradeCell.textContent = student.grade;
+    delBtn.textContent = `del`;
 
-    // Append cells to the row
     row.appendChild(nameCell);
     row.appendChild(ageCell);
     row.appendChild(gradeCell);
+    row.appendChild(delBtn);
 
-    // Append the row to the table
     tableEl.appendChild(row);
   });
 }
 
 function searchByName() {
-    dataTable.classList.add('toggle')
-    searchTable.classList.remove('toggle')
+  dataTable.classList.add("toggle");
+  searchTable.classList.remove("toggle");
   const searchTableEl = document.getElementById("searchTable");
   searchTableEl.innerHTML = "<tr><th>Name</th><th>Age</th><th>Grade</th></tr>";
 
   const studentData = JSON.parse(localStorage.getItem("data"));
   studentData.forEach((student) => {
     if (searchEl.value == student.name) {
-
       const row = document.createElement("tr");
-
-      // Create cells for student data
       const nameCell = document.createElement("td");
       const ageCell = document.createElement("td");
       const gradeCell = document.createElement("td");
@@ -80,15 +77,37 @@ function searchByName() {
       ageCell.textContent = student.age;
       gradeCell.textContent = student.grade;
 
-      // Append cells to the row
       row.appendChild(nameCell);
       row.appendChild(ageCell);
       row.appendChild(gradeCell);
 
-      // Append the row to the table
       searchTableEl.appendChild(row);
-    }
 
-    // console.log('match voooo', student);
+      searchEl.value=""
+    }
   });
 }
+
+// console.log(Array.from(delBtnEl));
+// console.log(arr[1]);
+
+let arr = Array.from(delBtnEl);
+arr.forEach((button) => {
+  // console.log(newArray);
+  const studentData = JSON.parse(localStorage.getItem("data"))
+  // console.log(studentData);
+  const newArray = [...studentData]
+  // console.log(studentData);
+  // console.log(typeof(Array.from(studentData)));
+  button.addEventListener("click", () => {
+    // console.log(button.parentElement);
+    button.parentElement.remove();    
+    let index = arr.indexOf(button);
+    newArray.splice(index,1)
+    console.log(newArray);
+    localStorage.setItem("data", JSON.stringify(newArray));
+  });
+  // return studentData
+});
+
+
